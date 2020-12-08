@@ -21,27 +21,21 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/target'
-    Contents: '*.jar'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    CleanTargetFolder: true
-    OverWrite: true
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    publishLocation: 'Container'
-    ArtifactName: 'drop'
-
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/jf-1.0.jar'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/target/jf-1.0.jar'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/jf-1.0-$(Build.BuildId).zip'
     replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/'
+    publishLocation: 'Container'
+    ArtifactName: 'drop'
+
+
 
 - task: AzureFunctionApp@1
   inputs:
