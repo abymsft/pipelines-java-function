@@ -34,6 +34,15 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'Container'
     ArtifactName: 'drop'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/jf-1.0.jar'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/jf-1.0-$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
 - task: AzureFunctionApp@1
   inputs:
     azureSubscription: 'azfuncmyfinance'
@@ -42,4 +51,4 @@ steps:
     #deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
     #slotName: 'staging'
-    package: '$(Build.ArtifactStagingDirectory)/jf-1.0.jar'
+    package: '$(Build.ArtifactStagingDirectory)/jf-1.0-$(Build.BuildId).zip'
