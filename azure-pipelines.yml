@@ -41,4 +41,4 @@ steps:
     #deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
     #slotName: 'staging'
-    package: '$(Build.ArtifactStagingDirectory)/drop/*.jar'
+    package: '$(Build.ArtifactStagingDirectory)/jf-1.0.jar'
