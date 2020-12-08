@@ -20,7 +20,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 - task: AzureFunctionApp@1
   inputs:
     azureSubscription: 'azfuncmyfinance'
@@ -29,4 +33,4 @@ steps:
     deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
     slotName: 'staging'
-    package: '$(System.DefaultWorkingDirectory)/**/jf-1.0.jar'
+    package: '$(Build.ArtifactStagingDirectory)/drop/jf-1.0.jar'
