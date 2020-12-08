@@ -22,8 +22,9 @@ steps:
     goals: 'package'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/**/jf-1.0.jar'
     ArtifactName: 'drop'
+    TargetPath: '$(Build.ArtifactStagingDirectory)/'
     publishLocation: 'Container'
 - task: AzureFunctionApp@1
   inputs:
