@@ -26,7 +26,7 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/target/jf-1.0.jar'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/jf-1.0-$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/jf-1.0.zip'
     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
@@ -45,4 +45,4 @@ steps:
     #deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
     #slotName: 'staging'
-    package: '$(Build.ArtifactStagingDirectory)/jf-1.0-$(Build.BuildId).zip'
+    package: '$(Build.ArtifactStagingDirectory)/jf-1.0.zip'
