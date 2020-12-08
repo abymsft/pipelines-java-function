@@ -38,7 +38,7 @@ steps:
     azureSubscription: 'azfuncmyfinance'
     appType: 'functionAppLinux'
     appName: 'func-myfinance'
-    deployToSlotOrASE: true
+    #deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
-    slotName: 'staging'
+    #slotName: 'staging'
     package: '$(Build.ArtifactStagingDirectory)/**/jf-1.0.jar'
