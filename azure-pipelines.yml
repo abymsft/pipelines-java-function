@@ -23,9 +23,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/**/jf-1.0.jar'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/**/'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
     OverWrite: true
 
