@@ -28,5 +28,5 @@ steps:
     appName: 'func-myfinance'
     deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
-    slotName: 'production'
+    slotName: 'staging'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
