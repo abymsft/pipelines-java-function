@@ -29,4 +29,4 @@ steps:
     deployToSlotOrASE: true
     resourceGroupName: 'myfinance-hack'
     slotName: 'staging'
-    package: '$(System.DefaultWorkingDirectory)/**/*.jar'
+    package: '$(System.DefaultWorkingDirectory)/**/jf-1.0.jar'
